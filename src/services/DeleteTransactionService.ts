@@ -1,8 +1,13 @@
 // import AppError from '../errors/AppError';
+import { getRepository } from 'typeorm';
+import Transaction from '../models/Transaction';
 
 class DeleteTransactionService {
-  public async execute(): Promise<void> {
+  public async execute(id: string): Promise<void> {
     // TODO
+    const transactionRepository = getRepository(Transaction);
+
+    await transactionRepository.delete(id);
   }
 }
 
